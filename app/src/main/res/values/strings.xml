@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeParty</string>
+    <string name="logo">logo</string>
+    <string name="seu_app_para_toda_hora">Seu app para toda hora!</string>
+    <string name="cadastre_se">CADASTRE-SE</string>
+    <string name="faca_seu_login">FAÇA SEU LOGIN</string>
 </resources>
