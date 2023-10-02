@@ -5,4 +5,16 @@
     <string name="cadastre_se">CADASTRE-SE</string>
     <string name="faca_seu_login">FAÇA SEU LOGIN</string>
     <string name="continuar">Continuar</string>
+    <string name="aproveite_da_melhor_forma">Aproveite da melhor forma nosso app para encontrar os melhores eventos e festas e se conectar com seus amigos.</string>
+    <string name="parabens">Parabéns</string>
+    <string name="_success">sucessImg</string>
+    <string name="login">Login</string>
+    <string name="faca_login">Faça login para voltar a festa com seus amigos</string>
+    <string name="e_mail">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="cadastre_se_e_celebre">Cadastre-se e celebre com amigos nos melhores lugares da sua região</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="confirmar_senha">Confirmar senha</string>
 </resources>
