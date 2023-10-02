@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginRegisterActivity">
+    tools:context=".LoginRegistroActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -18,26 +18,28 @@
         app:srcCompat="@drawable/logo"
         tools:ignore="ImageContrastCheck" />
 
-    <Button
-        android:id="@+id/btnLogar"
+    <android.widget.Button
+        android:id="@+id/btnLogarAbrir"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@drawable/design_btn_register"
+        android:background="@drawable/design_btn_register"
+        android:textColor="@color/real_white"
         android:text="@string/faca_seu_login"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarAbrir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnRegistrar"
+    <android.widget.Button
+        android:id="@+id/btnRegistrarAbrir"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="160dp"
-        android:backgroundTint="@color/white"
+        android:background="@drawable/design_btn_login"
+        android:textColor="@color/orange_main"
         android:text="@string/cadastre_se"
-        app:iconTint="#FFFFFF"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
