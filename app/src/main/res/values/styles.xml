@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SMALL FONT SIZE -->
+    <style name="small_text">
+        <item name="android:textSize">15dp</item>
+    </style>
+    
+    <!-- MEDIUM FONT SIZE -->
+    <style name="medium_text">
+        <item name="android:textSize">19dp</item>
+    </style>
+
+    <!-- LARGE FONT SIZE -->
+    <style name="large_text">
+        <item name="android:textSize">23dp</item>
+    </style>
+</resources>
