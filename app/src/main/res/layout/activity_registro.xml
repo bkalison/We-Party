@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
-        android:text="Cadastro"
-        android:textSize="24dp"
+        android:text="@string/cadastro"
+        android:textSize="24sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Cadastre-se e celebre com amigos nos melhores lugares da sua região "
+        android:text="@string/cadastre_se_e_celebre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,14 +39,15 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/design_txt_edit"
         android:ems="10"
-        android:hint="Nome completo"
+        android:hint="@string/nome_completo"
         android:inputType="text"
-        android:paddingLeft="10dp"
-        android:textSize="16dp"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
         android:textColorHint="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadastro2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCadastro2"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -55,14 +56,15 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/design_txt_edit"
         android:ems="10"
-        android:hint="E-mail"
+        android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
-        android:textSize="16dp"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
         android:textColorHint="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -71,14 +73,15 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/design_txt_edit"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/senha"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textSize="16dp"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
         android:textColorHint="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
@@ -87,14 +90,15 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/design_txt_edit"
         android:ems="10"
-        android:hint="Confirmar senha"
+        android:hint="@string/confirmar_senha"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textSize="16dp"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
         android:textColorHint="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        tools:ignore="RtlSymmetry" />
 
     <android.widget.Button
         android:id="@+id/btnRegistrar"
