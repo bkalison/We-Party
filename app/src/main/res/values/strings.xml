@@ -17,4 +17,8 @@
     <string name="cadastre_se_e_celebre">Cadastre-se e celebre com amigos nos melhores lugares da sua região</string>
     <string name="nome_completo">Nome completo</string>
     <string name="confirmar_senha">Confirmar senha</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_feed">Feed</string>
+    <string name="title_eventos">Eventos</string>
+    <string name="title_perfil">Perfil</string>
 </resources>
