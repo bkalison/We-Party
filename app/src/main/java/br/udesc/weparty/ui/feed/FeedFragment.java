@@ -1,4 +1,4 @@
-package br.udesc.weparty.ui.dashboard;
+package br.udesc.weparty.ui.feed;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import br.udesc.weparty.databinding.FragmentDashboardBinding;
+import br.udesc.weparty.databinding.FragmentFeedBinding;
 
-public class DashboardFragment extends Fragment {
+public class FeedFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentFeedBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        FeedViewModel feedViewModel =
+                new ViewModelProvider(this).get(FeedViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentFeedBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textFeed;
+        feedViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
