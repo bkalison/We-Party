@@ -1,4 +1,4 @@
-package br.udesc.weparty.ui.notifications;
+package br.udesc.weparty.ui.eventos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import br.udesc.weparty.databinding.FragmentNotificationsBinding;
+import br.udesc.weparty.databinding.FragmentFeedBinding;
 
-public class NotificationsFragment extends Fragment {
+public class EventosFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentFeedBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        EventosViewModel eventosViewModel =
+                new ViewModelProvider(this).get(EventosViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentFeedBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textFeed;
+        eventosViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
