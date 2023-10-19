@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCadastro" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextName"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
@@ -50,7 +50,7 @@
         tools:ignore="RtlSymmetry" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextEmail"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -67,7 +67,7 @@
         tools:ignore="RtlSymmetry" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -84,7 +84,7 @@
         tools:ignore="RtlSymmetry" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/editTextVerify"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
