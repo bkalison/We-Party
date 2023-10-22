@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.FirebaseApp;
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         (new Handler()).postDelayed(this::startApp, 5000);
+        FirebaseApp.initializeApp(this);
     }
 
     private void startApp() {
