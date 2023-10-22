@@ -1,7 +1,23 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// build.gradle (projeto)
+
+// Defina os blocos de script permitidos no início
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.0' // ou a versão mais recente
+        classpath 'com.google.gms:google-services:4.4.0' // ou a versão mais recente
+        // outras dependências do classpath, se houver
+    }
+}
+
+// Agora mova os blocos de plugins para o final do arquivo
 plugins {
     id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false
+    id 'com.google.gms.google-services' version "4.4.0" apply false
 }
 
 task clean(type: Delete) {
