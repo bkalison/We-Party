@@ -4,10 +4,11 @@
     <color name="pink_main"> #FF4F94</color>
     <color name="purple_main">#2C016A</color>
     <color name="wine_main">#A22D82</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="real_black">#FF000000</color>
-    <color name="real_white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="real_black">#000000</color>
+    <color name="real_white">#FFFFFF</color>
     <color name="light_gray">#F0F0F0</color>
-    <color name="dark_gray">#AEAEB2</color>
+    <color name="gray">#AEAEB2</color>
+    <color name="dark_gray">#707070</color>
 </resources>
