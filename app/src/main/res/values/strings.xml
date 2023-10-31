@@ -21,4 +21,7 @@
     <string name="title_feed">Feed</string>
     <string name="title_eventos">Eventos</string>
     <string name="title_perfil">Perfil</string>
+    <string name="todos_seus_eventos">Todos seus eventos</string>
+    <string name="mais">+</string>
+    <string name="upload">envie uma foto para as pessoas saberem mais do seu evento</string>
 </resources>
