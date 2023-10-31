@@ -33,23 +33,28 @@
 
     <android.widget.Button
         android:id="@+id/btn_upload"
-        android:layout_width="320dp"
+        android:layout_width="0dp"
         android:layout_height="150dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
         android:drawableTop="@drawable/ic_upload"
-        android:text="envie uma foto para as pessoas saberem mais do seu evento"
+        android:text="@string/upload"
         android:textAllCaps="false"
         android:textColor="@color/dark_gray"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEventos" />
+        app:layout_constraintTop_toBottomOf="@+id/textEventos"
+        tools:ignore="TextSizeCheck" />
 
     <EditText
-        android:id="@+id/editNomeEvento"
-        android:layout_width="320"
-        android:layout_height="48"
+        android:id="@+id/editTextNomeEvento"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
         android:background="@drawable/design_txt_criar_evento"
         android:ems="10"
         android:hint="Nome do Evento"
@@ -62,10 +67,12 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_upload" />
 
     <EditText
-        android:id="@+id/editDescricao"
-        android:layout_width="320"
-        android:layout_height="48"
+        android:id="@+id/editTextDescricao"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
         android:background="@drawable/design_txt_criar_evento"
         android:ems="10"
         android:hint="Descrição"
@@ -74,15 +81,16 @@
         android:textColorHint="@color/dark_gray"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNomeEvento" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeEvento" />
 
     <EditText
-        android:id="@+id/editNomeEvento3"
-        android:layout_width="320"
-        android:layout_height="48"
+        android:id="@+id/editTextDataDoEvento"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
         android:background="@drawable/design_txt_criar_evento"
         android:ems="10"
         android:hint="Data do Evento"
@@ -93,16 +101,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDescricao" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescricao" />
 
     <EditText
-        android:id="@+id/editNomeEvento4"
-        android:layout_width="320"
-        android:layout_height="48"
-        android:layout_marginTop="8dp"
+        android:id="@+id/editTextCep"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="48dp"
         android:background="@drawable/design_txt_criar_evento"
         android:ems="10"
-        android:hint="Nome do Evento"
+        android:hint="Cep"
         android:inputType="textEmailAddress"
         android:paddingStart="10dp"
         android:textColorHint="@color/dark_gray"
@@ -110,6 +120,140 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNomeEvento3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDataDoEvento" />
+
+    <EditText
+        android:id="@+id/editTextCep5"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/design_txt_criar_evento"
+        android:ems="10"
+        android:hint="Cep"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep2" />
+
+    <EditText
+        android:id="@+id/editTextCep9"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/design_txt_criar_evento"
+        android:ems="10"
+        android:hint="Cep"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep7" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep">
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextCep2"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="156dp"
+        android:background="@drawable/design_txt_criar_evento"
+        android:ems="10"
+        android:hint="Cep"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep" />
+
+    <EditText
+        android:id="@+id/editTextCep7"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="156dp"
+        android:background="@drawable/design_txt_criar_evento"
+        android:ems="10"
+        android:hint="Cep"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep5" />
+
+    <EditText
+        android:id="@+id/editTextCep3"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/design_txt_criar_evento"
+        android:ems="10"
+        android:hint="Cep"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextCep2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep" />
+
+    <EditText
+        android:id="@+id/editTextCep8"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/design_txt_criar_evento"
+        android:ems="10"
+        android:hint="Cep"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextCep7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep5" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="48dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCep9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
