@@ -8,8 +8,6 @@ import android.os.Handler;
 
 import com.google.firebase.FirebaseApp;
 
-import br.udesc.weparty.ui.criarEvento.CriarEventoFragment;
-
 public class MainActivity extends AppCompatActivity {
 
 
