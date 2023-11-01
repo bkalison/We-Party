@@ -1,28 +1,54 @@
 package br.udesc.weparty.ui.eventos;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import br.udesc.weparty.databinding.FragmentFeedBinding;
+import br.udesc.weparty.CriarEvento;
+import br.udesc.weparty.LoginActivity;
+import br.udesc.weparty.R;
+import br.udesc.weparty.databinding.FragmentEventosBinding;
 
 public class EventosFragment extends Fragment {
 
-    private FragmentFeedBinding binding;
+    private FragmentEventosBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         EventosViewModel eventosViewModel =
                 new ViewModelProvider(this).get(EventosViewModel.class);
 
-        binding = FragmentFeedBinding.inflate(inflater, container, false);
+        binding = FragmentEventosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        Button btnAddEvento = (Button) view.findViewById(R.id.btnAddEvento);
+        btnAddEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(null, "onClick: Teste");
+                Intent intent = new Intent(getActivity(), CriarEvento.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -30,4 +56,5 @@ public class EventosFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }

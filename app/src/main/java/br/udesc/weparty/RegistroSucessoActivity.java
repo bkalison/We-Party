@@ -13,7 +13,7 @@ public class RegistroSucessoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_sucesso);
-        Button btnLogarAbrir = findViewById(R.id.btnLogarAbrir);
+        Button btnLogarAbrir = findViewById(R.id.btnContinuar);
 
         btnLogarAbrir.setOnClickListener(new View.OnClickListener() {
             @Override

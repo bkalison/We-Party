@@ -16,11 +16,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        (new Handler()).postDelayed(this::startApp, 5000);
+        (new Handler()).postDelayed(this::startApp, 1000);
         FirebaseApp.initializeApp(this);
     }
 
     private void startApp() {
-        startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
+        //startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
+        startActivity(new Intent(MainActivity.this, HomeActivity.class));
     }
 }
