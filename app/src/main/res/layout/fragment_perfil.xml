@@ -6,11 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.perfil.PerfilFragment">
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="250dp" />
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.ImageButton
+        android:id="@+id/imageProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="48dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_profile_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPerfil" />
+
+    <TextView
+        android:id="@+id/textNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:text="Nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
