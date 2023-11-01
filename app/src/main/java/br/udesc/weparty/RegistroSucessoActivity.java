@@ -23,7 +23,7 @@ public class RegistroSucessoActivity extends AppCompatActivity {
         });
     }
     public void intent(){
-        Intent intent = new Intent(RegistroSucessoActivity.this, LoginActivity.class);
+        Intent intent = new Intent(RegistroSucessoActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }

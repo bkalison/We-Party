@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(LoginActivity.this, RegistroSucessoActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                 } else {
                     String exception = "";
