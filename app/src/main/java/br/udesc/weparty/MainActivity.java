@@ -10,8 +10,6 @@ import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +20,5 @@ public class MainActivity extends AppCompatActivity {
 
     private void startApp() {
         startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
-        //startActivity(new Intent(MainActivity.this, HomeActivity.class));
     }
 }
