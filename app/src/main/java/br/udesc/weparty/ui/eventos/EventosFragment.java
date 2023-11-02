@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import br.udesc.weparty.CriarEvento;
+import br.udesc.weparty.EventoActivity;
 import br.udesc.weparty.LoginActivity;
 import br.udesc.weparty.R;
 import br.udesc.weparty.databinding.FragmentEventosBinding;
@@ -43,8 +44,16 @@ public class EventosFragment extends Fragment {
         btnAddEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(null, "onClick: Teste");
                 Intent intent = new Intent(getActivity(), CriarEvento.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnProvisorio = (Button) view.findViewById(R.id.btnProvisorio);
+        btnProvisorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EventoActivity.class);
                 startActivity(intent);
             }
         });
