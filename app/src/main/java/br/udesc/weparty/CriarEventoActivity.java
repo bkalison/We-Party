@@ -22,15 +22,24 @@ import java.util.Locale;
 import br.udesc.weparty.Model.Evento;
 
 
-public class CriarEvento extends AppCompatActivity {
+public class CriarEventoActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     Evento event;
     final Calendar calendar = Calendar.getInstance();
-    EditText dataEvento, horaEvento;
+    EditText dataEvento;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_evento);
+
+        TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                calendar.set(Calendar.HOUR_OF_DAY, hour);
+                calendar.set(Calendar.MINUTE, minute);
+                atualizaDataEHora();
+            }
+        };
 
         dataEvento = (EditText) findViewById(R.id.editTextDataDoEvento);
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -39,29 +48,13 @@ public class CriarEvento extends AppCompatActivity {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH,month);
                 calendar.set(Calendar.DAY_OF_MONTH,day);
-                atualizaData();
+                new TimePickerDialog(CriarEventoActivity.this, time, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show();
             }
         };
         dataEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DatePickerDialog(CriarEvento.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        horaEvento = (EditText) findViewById(R.id.editTextHoraDoEvento);
-        TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                calendar.set(Calendar.HOUR, hour);
-                calendar.set(Calendar.MINUTE, minute);
-                atualizaHora();
-            }
-        };
-        horaEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new TimePickerDialog(CriarEvento.this, time, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), true).show();
+                new DatePickerDialog(CriarEventoActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
 
@@ -79,7 +72,6 @@ public class CriarEvento extends AppCompatActivity {
         EditText editTextNomeEvento = findViewById(R.id.editTextNomeEvento);
         EditText editTextDescricao = findViewById(R.id.editTextDescricao);
         EditText editTextDataDoEvento = findViewById(R.id.editTextDataDoEvento);
-        EditText editTextHoraDoEvento = findViewById(R.id.editTextHoraDoEvento);
         EditText editTextCep = findViewById(R.id.editTextCep);
         EditText editTextCidade = findViewById(R.id.editTextCidade);
         EditText editTextUf = findViewById(R.id.editTextUf);
@@ -91,7 +83,6 @@ public class CriarEvento extends AppCompatActivity {
         String nome = editTextNomeEvento.getText().toString();
         String descricao = editTextDescricao.getText().toString();
         String data = editTextDataDoEvento.getText().toString();
-        String hora = editTextHoraDoEvento.getText().toString();
         String cep = editTextCep.getText().toString();
         String cidade = editTextCidade.getText().toString();
         String estado = editTextUf.getText().toString();
@@ -100,7 +91,7 @@ public class CriarEvento extends AppCompatActivity {
         String numero = editTextNumero.getText().toString();
         String complemento = editTextComplemento.getText().toString();
 
-        if (TextUtils.isEmpty(nome) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data) || TextUtils.isEmpty(hora) || TextUtils.isEmpty(cep) ||
+        if (TextUtils.isEmpty(nome) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data) || TextUtils.isEmpty(cep) ||
                 TextUtils.isEmpty(cidade) || TextUtils.isEmpty(estado) || TextUtils.isEmpty(bairro) || TextUtils.isEmpty(rua) || TextUtils.isEmpty(numero) || TextUtils.isEmpty(complemento)) {
             Toast.makeText(this, "Todos os campos são Obrigatorios", Toast.LENGTH_SHORT).show();
         }
@@ -111,8 +102,6 @@ public class CriarEvento extends AppCompatActivity {
             Toast.makeText(this, "O campo 'Descrição' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else if (data.isEmpty()) {
             Toast.makeText(this, "O campo 'Data' é obrigatório.", Toast.LENGTH_SHORT).show();
-        } else if (hora.isEmpty()) {
-            Toast.makeText(this, "O campo 'Hora' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else if (cep.isEmpty()) {
             Toast.makeText(this, "O campo 'CEP' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else if (cidade.isEmpty()) {
@@ -139,22 +128,14 @@ public class CriarEvento extends AppCompatActivity {
             event.setAddress(rua);
             event.setNumber(numero);
             event.setComplement(complemento);
+            event.setDate(calendar);
         }
     }
 
-
-        private void atualizaData() {
-        String format = "dd/MM/yyyy";
+    private void atualizaDataEHora() {
+        String format = "dd/MM/yyyy HH:mm";
         SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.US);
         dataEvento.setText(dateFormat.format(calendar.getTime()));
     }
-
-    private void atualizaHora() {
-        String format = "mm:hh";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.US);
-        horaEvento.setText(dateFormat.format(calendar.getTime()));
-    }
-
-
 
 }

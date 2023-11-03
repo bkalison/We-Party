@@ -1,15 +1,14 @@
 package br.udesc.weparty.Model;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Evento {
     private String name, address, complement, description, cep, city, state, district, number;
-    private Date date;
+    private Calendar date;
 
     public Evento() {
 
     }
-
 
     public String getName() {
         return name;
@@ -83,11 +82,11 @@ public class Evento {
         this.number = number;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 }

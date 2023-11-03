@@ -19,7 +19,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".CriarEvento"
+            android:name=".CriarEventoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
