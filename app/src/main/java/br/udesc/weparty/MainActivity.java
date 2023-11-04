@@ -8,11 +8,7 @@ import android.os.Handler;
 
 import com.google.firebase.FirebaseApp;
 
-import br.udesc.weparty.ui.criarEvento.CriarEventoFragment;
-
 public class MainActivity extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startApp() {
-        //startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
-        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
     }
 }
