@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".CriarEvento">
+        tools:context=".CriarEventoActivity">
 
         <TextView
             android:id="@+id/textEventos"
@@ -61,9 +61,11 @@
             android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="48dp"
+            android:autofillHints=""
             android:background="@drawable/design_txt_criar_evento"
             android:ems="10"
             android:hint="@string/nome_do_evento"
+            android:imeOptions="actionDone"
             android:inputType="text|textAutoComplete|textAutoCorrect"
             android:paddingStart="10dp"
             android:textColorHint="@color/dark_gray"
@@ -71,8 +73,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_upload"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/editTextDescricao"
@@ -81,9 +82,11 @@
             android:layout_marginStart="48dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
+            android:autofillHints=""
             android:background="@drawable/design_txt_criar_evento"
             android:ems="10"
             android:hint="@string/descricao"
+            android:imeOptions="actionDone"
             android:inputType="textMultiLine|textLongMessage|textAutoComplete|textAutoCorrect"
             android:minHeight="48dp"
             android:paddingStart="10dp"
@@ -92,8 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextNomeEvento"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/editTextDataDoEvento"
@@ -117,37 +119,17 @@
             tools:ignore="Autofill,DuplicateSpeakableTextCheck,RtlSymmetry" />
 
         <EditText
-            android:id="@+id/editTextHoraDoEvento"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:background="@drawable/design_txt_criar_evento"
-            android:ems="10"
-            android:hint="@string/data_do_evento"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:inputType="none"
-            android:paddingStart="10dp"
-            android:textColorHint="@color/dark_gray"
-            android:textSize="11sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDataDoEvento"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
-
-        <EditText
             android:id="@+id/editTextCep"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="48dp"
+            android:autofillHints=""
             android:background="@drawable/design_txt_criar_evento"
             android:ems="10"
             android:hint="@string/cep"
+            android:imeOptions="actionDone"
             android:inputType="number"
             android:maxLength="8"
             android:paddingStart="10dp"
@@ -155,9 +137,8 @@
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextHoraDoEvento"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDataDoEvento"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/editTextCidade"
@@ -166,9 +147,11 @@
             android:layout_marginStart="48dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="156dp"
+            android:autofillHints=""
             android:background="@drawable/design_txt_criar_evento"
             android:ems="10"
             android:hint="@string/cidade"
+            android:imeOptions="actionDone"
             android:inputType="text|textPostalAddress|textAutoComplete|textAutoCorrect"
             android:paddingStart="10dp"
             android:textColorHint="@color/dark_gray"
@@ -176,8 +159,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCep"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/editTextUf"
@@ -186,9 +168,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
+            android:autofillHints=""
             android:background="@drawable/design_txt_criar_evento"
             android:ems="10"
             android:hint="@string/uf"
+            android:imeOptions="actionDone"
             android:inputType="text|textPostalAddress|textAutoComplete|textAutoCorrect"
             android:maxLength="2"
             android:paddingStart="10dp"
@@ -197,8 +181,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/editTextCidade"
             app:layout_constraintTop_toBottomOf="@+id/editTextCep"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/editTextBairro"
@@ -207,6 +190,7 @@
             android:layout_marginStart="48dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
+            android:autofillHints=""
             android:background="@drawable/design_txt_criar_evento"
             android:ems="10"
             android:hint="@string/bairro"
@@ -217,8 +201,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCidade"
-            tools:ignore="RtlSymmetry"
-            android:autofillHints="" />
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/editTextRua"

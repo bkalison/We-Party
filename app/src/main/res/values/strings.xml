@@ -31,7 +31,7 @@
     <string name="cep">Cep</string>
     <string name="cidade">Cidade</string>
     <string name="complemento">Complemento</string>
-    <string name="data_do_evento">Data do Evento</string>
+    <string name="data_do_evento">Data e Hora do Evento</string>
     <string name="descricao">Descrição</string>
     <string name="nome_do_evento">Nome do Evento</string>
     <string name="n">Nº</string>
