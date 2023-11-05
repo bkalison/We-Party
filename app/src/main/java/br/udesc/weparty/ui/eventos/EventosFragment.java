@@ -32,6 +32,10 @@ public class EventosFragment extends Fragment {
         return root;
     }
 
+    public void initRecycleView() {
+        binding.recycleEventos
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
