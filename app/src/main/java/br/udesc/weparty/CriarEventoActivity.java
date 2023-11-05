@@ -158,7 +158,6 @@ public class CriarEventoActivity extends AppCompatActivity {
                 Toast.makeText(this, "O campo 'Complemento' é obrigatório.", Toast.LENGTH_SHORT).show();
             } else {
                 // Todos os campos estão preenchidos, então crie o evento
-
                 event = new Evento();
                 event.setName(nome);
                 event.setDescription(descricao);
