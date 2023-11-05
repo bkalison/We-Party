@@ -6,6 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".ui.perfil.PerfilFragment">
 
+    <EditText
+        android:id="@+id/textEmailPerfil"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/design_txt_edit"
+        android:ems="10"
+        android:hint="@string/perfil_email"
+        android:inputType="text"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNomePerfil"
+        app:layout_constraintVertical_bias="0.059"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/textNomePerfil"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/design_txt_edit"
+        android:ems="10"
+        android:hint="@string/nome_Perfil"
+        android:inputType="text"
+        android:paddingStart="10dp"
+        android:textColorHint="@color/dark_gray"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile"
+        app:layout_constraintVertical_bias="0.051"
+        tools:ignore="RtlSymmetry" />
+
     <TextView
         android:id="@+id/textPerfil"
         android:layout_width="wrap_content"
@@ -30,18 +68,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPerfil"
         tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/nome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

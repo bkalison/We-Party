@@ -15,7 +15,7 @@
     <string name="entrar">Entrar</string>
     <string name="cadastro">Cadastro</string>
     <string name="cadastre_se_e_celebre">Cadastre-se e celebre com amigos nos melhores lugares da sua região</string>
-    <string name="nome_completo">Nome completo</string>
+    <string name="perfil_email">Email</string>
     <string name="confirmar_senha">Confirmar senha</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_feed">Feed</string>
@@ -39,4 +39,6 @@
     <string name="uf">UF</string>
     <string name="descricao_do_evento">Descrição do Evento</string>
     <string name="nome">Nome</string>
+    <string name="nome_Perfil">Nome do Usuario</string>
+    <string name="nome_completo">Nome Completo</string>
 </resources>
