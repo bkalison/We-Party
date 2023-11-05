@@ -2,11 +2,13 @@ package br.udesc.weparty;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -34,9 +36,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CriarEventoActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     Evento event;
+
     final Calendar calendar = Calendar.getInstance();
     EditText dataEvento;
-
     EditText editTextNomeEvento;
     EditText editTextDescricao;
     EditText editTextDataDoEvento;
@@ -47,6 +49,7 @@ public class CriarEventoActivity extends AppCompatActivity {
     EditText editTextRua;
     EditText editTextNumero;
     EditText editTextComplemento;
+    Button btnAdicionarEvento;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,17 +65,9 @@ public class CriarEventoActivity extends AppCompatActivity {
         editTextRua = findViewById(R.id.editTextRua);
         editTextNumero = findViewById(R.id.editTextNumero);
         editTextComplemento = findViewById(R.id.editTextComplemento);
+        btnAdicionarEvento = findViewById(R.id.btnAdicionarEvento);
 
-        String nome = editTextNomeEvento.getText().toString();
-        String descricao = editTextDescricao.getText().toString();
-        String data = editTextDataDoEvento.getText().toString();
-        String cep = editTextCep.getText().toString();
-        String cidade = editTextCidade.getText().toString();
-        String estado = editTextUf.getText().toString();
-        String bairro = editTextBairro.getText().toString();
-        String rua = editTextRua.getText().toString();
-        String numero = editTextNumero.getText().toString();
-        String complemento = editTextComplemento.getText().toString();
+
 
         editTextCep.addTextChangedListener(new TextWatcher() {
             @Override
@@ -87,9 +82,9 @@ public class CriarEventoActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                 if (editable.length() == 8){
-                     buscarInfoCEP(editable.toString());
-                 }
+                if (editable.length() == 8) {
+                    buscarInfoCEP(editable.toString());
+                }
             }
         });
 
@@ -128,52 +123,80 @@ public class CriarEventoActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-            if (TextUtils.isEmpty(nome) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data) || TextUtils.isEmpty(cep) ||
-                    TextUtils.isEmpty(cidade) || TextUtils.isEmpty(estado) || TextUtils.isEmpty(bairro) || TextUtils.isEmpty(rua) || TextUtils.isEmpty(numero) || TextUtils.isEmpty(complemento)) {
-                Toast.makeText(this, "Todos os campos são Obrigatorios", Toast.LENGTH_SHORT).show();
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
+        });
 
-            if (nome.isEmpty()) {
-                Toast.makeText(this, "O campo 'Nome' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (descricao.isEmpty()) {
-                Toast.makeText(this, "O campo 'Descrição' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (data.isEmpty()) {
-                Toast.makeText(this, "O campo 'Data' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (cep.isEmpty()) {
-                Toast.makeText(this, "O campo 'CEP' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (cidade.isEmpty()) {
-                Toast.makeText(this, "O campo 'Cidade' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (estado.isEmpty()) {
-                Toast.makeText(this, "O campo 'Estado' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (bairro.isEmpty()) {
-                Toast.makeText(this, "O campo 'Bairro' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (rua.isEmpty()) {
-                Toast.makeText(this, "O campo 'Rua' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (numero.isEmpty()) {
-                Toast.makeText(this, "O campo 'Número' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else if (complemento.isEmpty()) {
-                Toast.makeText(this, "O campo 'Complemento' é obrigatório.", Toast.LENGTH_SHORT).show();
-            } else {
-                // Todos os campos estão preenchidos, então crie o evento
-                event = new Evento();
-                event.setName(nome);
-                event.setDescription(descricao);
-                event.setCep(cep);
-                event.setCity(cidade);
-                event.setState(estado);
-                event.setDistrict(bairro);
-                event.setAddress(rua);
-                event.setNumber(numero);
-                event.setComplement(complemento);
-                event.setDate(calendar);
+        btnAdicionarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CriarEventoActivity.this, "Evento Criado", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(CriarEventoActivity.this, HomeActivity.class);
+                checkFields();
+                startActivity(intent);
             }
+        });
+    }
+
+    public void checkFields() {
+        String nome = editTextNomeEvento.getText().toString();
+        String descricao = editTextDescricao.getText().toString();
+        String data = editTextDataDoEvento.getText().toString();
+        String cep = editTextCep.getText().toString();
+        String cidade = editTextCidade.getText().toString();
+        String estado = editTextUf.getText().toString();
+        String bairro = editTextBairro.getText().toString();
+        String rua = editTextRua.getText().toString();
+        String numero = editTextNumero.getText().toString();
+        String complemento = editTextComplemento.getText().toString();
+
+
+
+        if (TextUtils.isEmpty(nome) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data) || TextUtils.isEmpty(cep) ||
+                TextUtils.isEmpty(cidade) || TextUtils.isEmpty(estado) || TextUtils.isEmpty(bairro) || TextUtils.isEmpty(rua) || TextUtils.isEmpty(numero) || TextUtils.isEmpty(complemento)) {
+            Toast.makeText(this, "Todos os campos são Obrigatorios", Toast.LENGTH_SHORT).show();
         }
 
+        if (nome.isEmpty()) {
+            Toast.makeText(this, "O campo 'Nome' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (descricao.isEmpty()) {
+            Toast.makeText(this, "O campo 'Descrição' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (data.isEmpty()) {
+            Toast.makeText(this, "O campo 'Data' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (cep.isEmpty()) {
+            Toast.makeText(this, "O campo 'CEP' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (cidade.isEmpty()) {
+            Toast.makeText(this, "O campo 'Cidade' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (estado.isEmpty()) {
+            Toast.makeText(this, "O campo 'Estado' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (bairro.isEmpty()) {
+            Toast.makeText(this, "O campo 'Bairro' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (rua.isEmpty()) {
+            Toast.makeText(this, "O campo 'Rua' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (numero.isEmpty()) {
+            Toast.makeText(this, "O campo 'Número' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else if (complemento.isEmpty()) {
+            Toast.makeText(this, "O campo 'Complemento' é obrigatório.", Toast.LENGTH_SHORT).show();
+        } else {
+            event = new Evento();
+            event.setName(nome);
+            event.setDescription(descricao);
+            event.setCep(cep);
+            event.setCity(cidade);
+            event.setState(estado);
+            event.setDistrict(bairro);
+            event.setAddress(rua);
+            event.setNumber(numero);
+            event.setComplement(complemento);
+            event.setDate(calendar);
 
+            event.newEvent();
 
+        }
+    }
 
     private void buscarInfoCEP(String cep){
         String baseUrl = "https://viacep.com.br/ws/";
