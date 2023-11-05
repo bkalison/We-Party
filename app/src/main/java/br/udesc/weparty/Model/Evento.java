@@ -1,10 +1,21 @@
 package br.udesc.weparty.Model;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import android.util.Log;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
+import java.util.UUID;
 
 public class Evento {
     private String name, address, complement, description, cep, city, state, district, number;
     private Calendar date;
+
+    UUID uuid = UUID.randomUUID();
+    String uuidString = uuid.toString();
 
     public Evento() {
 
@@ -89,4 +100,27 @@ public class Evento {
     public void setDate(Calendar date) {
         this.date = date;
     }
+
+    public void newEvent(){
+        Log.e(TAG, "Esta é uma mensagem de erro.");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        reference.child("event").child(uuidString).setValue(this);
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        // Sucesso ao configurar o valor no banco de dados
+//                        Log.d("Firebase", "Valor configurado com sucesso no banco de dados.");
+//                        return true;
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        // Falha ao configurar o valor no banco de dados
+//                        Log.e("Firebase", "Erro ao configurar o valor no banco de dados: " + e.getMessage());
+//                        return false;
+//                    }
+//                });
+    }
+
 }
