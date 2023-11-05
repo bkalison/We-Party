@@ -1,11 +1,13 @@
-package br.udesc.weparty;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.udesc.weparty.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import br.udesc.weparty.R;
 
 public class LoginRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 

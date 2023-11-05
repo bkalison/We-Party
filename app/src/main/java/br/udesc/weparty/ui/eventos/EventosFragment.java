@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import br.udesc.weparty.CriarEventoActivity;
-import br.udesc.weparty.EventoActivity;
+import br.udesc.weparty.Activity.CriarEventoActivity;
+import br.udesc.weparty.Activity.EventoActivity;
 import br.udesc.weparty.R;
 import br.udesc.weparty.databinding.FragmentEventosBinding;
 
@@ -30,10 +30,6 @@ public class EventosFragment extends Fragment {
         View root = binding.getRoot();
 
         return root;
-    }
-
-    public void initRecycleView() {
-        binding.recycleEventos
     }
 
     @Override

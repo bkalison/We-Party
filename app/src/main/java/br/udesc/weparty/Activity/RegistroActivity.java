@@ -1,4 +1,4 @@
-package br.udesc.weparty;
+package br.udesc.weparty.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import br.udesc.weparty.Model.User;
+import br.udesc.weparty.R;
 import br.udesc.weparty.Utils.FirebaseConfig;
 
 public class RegistroActivity extends AppCompatActivity {
