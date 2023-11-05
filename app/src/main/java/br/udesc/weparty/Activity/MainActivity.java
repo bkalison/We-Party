@@ -1,12 +1,14 @@
-package br.udesc.weparty;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.udesc.weparty.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.FirebaseApp;
+
+import br.udesc.weparty.R;
 
 public class MainActivity extends AppCompatActivity {
 

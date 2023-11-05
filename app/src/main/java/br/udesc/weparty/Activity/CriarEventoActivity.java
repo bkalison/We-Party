@@ -1,4 +1,4 @@
-package br.udesc.weparty;
+package br.udesc.weparty.Activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -26,6 +26,7 @@ import java.util.Locale;
 import br.udesc.weparty.Model.CepResponse;
 import br.udesc.weparty.Model.CepService;
 import br.udesc.weparty.Model.Evento;
+import br.udesc.weparty.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +37,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CriarEventoActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     Evento event;
-
     final Calendar calendar = Calendar.getInstance();
     EditText dataEvento;
     EditText editTextNomeEvento;
@@ -66,8 +66,6 @@ public class CriarEventoActivity extends AppCompatActivity {
         editTextNumero = findViewById(R.id.editTextNumero);
         editTextComplemento = findViewById(R.id.editTextComplemento);
         btnAdicionarEvento = findViewById(R.id.btnAdicionarEvento);
-
-
 
         editTextCep.addTextChangedListener(new TextWatcher() {
             @Override
@@ -181,6 +179,7 @@ public class CriarEventoActivity extends AppCompatActivity {
         } else if (complemento.isEmpty()) {
             Toast.makeText(this, "O campo 'Complemento' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else {
+
             event = new Evento();
             event.setName(nome);
             event.setDescription(descricao);
@@ -230,7 +229,6 @@ public class CriarEventoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<CepResponse> call, Throwable t) {
-                // Lida com erros, como falha na conexão ou resposta inválida da API.
                 Toast.makeText(getApplicationContext(), "Erro ao buscar informações de CEP", Toast.LENGTH_SHORT).show();
             }
         });
@@ -240,5 +238,4 @@ public class CriarEventoActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.US);
         dataEvento.setText(dateFormat.format(calendar.getTime()));
     }
-
 }

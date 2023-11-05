@@ -1,10 +1,12 @@
-package br.udesc.weparty;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.udesc.weparty.Activity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import br.udesc.weparty.R;
 
 public class EventoActivity extends AppCompatActivity {
 

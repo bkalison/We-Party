@@ -17,36 +17,36 @@
         android:theme="@style/Theme.WeParty"
         tools:targetApi="31">
         <activity
-            android:name=".EventoActivity"
+            android:name=".Activity.EventoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".CriarEventoActivity"
+            android:name=".Activity.CriarEventoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activity.HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".RegistroSucessoActivity"
+            android:name=".Activity.RegistroSucessoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".RegistroActivity"
+            android:name=".Activity.RegistroActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".LoginRegistroActivity"
+            android:name=".Activity.LoginRegistroActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
