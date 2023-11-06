@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startApp() {
-        //startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
-        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
+//        startActivity(new Intent(MainActivity.this, HomeActivity.class));
     }
 
     public void setMockEventsCards() {
