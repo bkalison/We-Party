@@ -7,6 +7,10 @@ public class EventCard {
     int eventLikes;
     int eventComents;
 
+    public EventCard() {
+
+    }
+
     public EventCard ( int eventImage,String eventDate, String eventTitle, int eventLikes, int eventComents) {
         this.eventImage = eventImage;
         this.eventDate = eventDate;
