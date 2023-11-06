@@ -1,6 +1,8 @@
 package br.udesc.weparty.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,7 +31,7 @@ public class RegistroActivity extends AppCompatActivity {
     User user;
     FirebaseAuth firebaseAuth;
 
-    private static final String PREFS_NAME = "PREFS_FILE";
+    public static final String PREFS_NAME = "PREFS_FILE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,8 @@ public class RegistroActivity extends AppCompatActivity {
         EditText FieldPassword = findViewById(R.id.editTextPassword);
         EditText FieldPasswordVerify = findViewById(R.id.editTextVerify);
 
-        String name = FieldName.getText().toString().trim();
-        String email = FieldEmail.getText().toString().trim();
+        String name = FieldName.getText().toString();
+        String email = FieldEmail.getText().toString();
         String password = FieldPassword.getText().toString().trim();
         String confirmPassword = FieldPasswordVerify.getText().toString().trim();
 
@@ -135,12 +137,11 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
-//        SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("name", name);
-//        editor.putString("email", email);
-//        editor.putString("password", password);
-//        editor.apply();
+        SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("nome", user.getName());
+        editor.putString("email", user.getEmail());
+        editor.apply();
 
         Intent intent = new Intent(RegistroActivity.this, RegistroSucessoActivity.class);
         startActivity(intent);
