@@ -101,6 +101,10 @@ public class Evento {
         this.date = date;
     }
 
+    public String getUuidString() {
+        return uuidString;
+    }
+
     public void newEvent(){
         Log.e(TAG, "Esta é uma mensagem de erro.");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();

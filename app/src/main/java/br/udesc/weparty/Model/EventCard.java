@@ -1,6 +1,14 @@
 package br.udesc.weparty.Model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class EventCard {
+
+    private Evento evento;
+    String eventId;
     int eventImage;
     String eventDate;
     String eventTitle;
@@ -8,7 +16,17 @@ public class EventCard {
     int eventComents;
 
     public EventCard() {
+    }
 
+    public EventCard(Evento evento) {
+        Date date = evento.getDate().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US);
+        String dataEvento = dateFormat.format(date);
+
+        this.evento = evento;
+        this.eventDate = dataEvento;
+        this.eventTitle = evento.getName();
+        this.eventId = evento.getUuidString();
     }
 
     public EventCard ( int eventImage,String eventDate, String eventTitle, int eventLikes, int eventComents) {
@@ -57,5 +75,9 @@ public class EventCard {
 
     public void setEventComents(int eventComents) {
         this.eventComents = eventComents;
+    }
+
+    public Evento getEvento() {
+        return evento;
     }
 }
