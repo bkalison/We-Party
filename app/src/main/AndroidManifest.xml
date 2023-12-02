@@ -16,6 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeParty"
         tools:targetApi="31">
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <!--        <service android:name="MyFirebaseMessagingService" android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT"> </action>-->
+<!--            </intent-filter>-->
+<!--        </service>-->
         <activity
             android:name=".Activity.EventoActivity"
             android:exported="false"
