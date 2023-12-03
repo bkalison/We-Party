@@ -81,10 +81,8 @@ public class RegistroActivity extends AppCompatActivity {
                             user = new User();
                             user.setName(name);
                             user.setEmail(email);
-                            user.setPassword(password);
-                            user.setConfirmPassword(confirmPassword);
 
-                            register();
+                            register(email, password);
 
                         }else {
                             Toast.makeText(this,"As Senhas devem ser iguais", Toast.LENGTH_SHORT).show();
@@ -103,17 +101,18 @@ public class RegistroActivity extends AppCompatActivity {
         }
     }
 
-    public void register(){
+    public void register(String email, String password){
 
         firebaseAuth = FirebaseConfig.FirebaseAuthentication();
 
         firebaseAuth.createUserWithEmailAndPassword(
-                user.getEmail(), user.getPassword()
+                email, password
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegistroActivity.this,"Sucesso ao cadastrar usuário", Toast.LENGTH_SHORT).show();
+                    user.newUser(firebaseAuth.getCurrentUser().getUid());
                 } else {
                     String exception = "";
 
@@ -137,11 +136,11 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
-        SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        /*SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("nome", user.getName());
         editor.putString("email", user.getEmail());
-        editor.apply();
+        editor.apply();*/
 
         Intent intent = new Intent(RegistroActivity.this, RegistroSucessoActivity.class);
         startActivity(intent);

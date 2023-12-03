@@ -19,13 +19,13 @@ public class LoginRegistroActivity extends AppCompatActivity implements View.OnC
         Button logar = (Button) findViewById(R.id.btnLogarAbrir);
         logar.setOnClickListener(this);
 
-        Button registrar = (Button) findViewById(R.id.btnRegistrarAbrir);
+        Button registrar = (Button) findViewById(R.id.btnDeslogar);
         registrar.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnRegistrarAbrir) {
+        if (v.getId() == R.id.btnDeslogar) {
             Intent registrar = new Intent(v.getContext(), RegistroActivity.class);
             startActivity(registrar);
         }

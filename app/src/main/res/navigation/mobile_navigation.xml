@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_feed"
-        android:name="br.udesc.weparty.ui.feed.FeedFragment"
+        android:name="br.udesc.weparty.ui.FeedFragment"
         android:label="@string/title_feed"
         tools:layout="@layout/fragment_feed" />
 
     <fragment
         android:id="@+id/navigation_eventos"
-        android:name="br.udesc.weparty.ui.eventos.EventosFragment"
+        android:name="br.udesc.weparty.ui.EventosFragment"
         android:label="@string/title_eventos"
         tools:layout="@layout/fragment_eventos" />
 
     <fragment
         android:id="@+id/navigation_perfil"
-        android:name="br.udesc.weparty.ui.perfil.PerfilFragment"
+        android:name="br.udesc.weparty.ui.PerfilFragment"
         android:label="@string/title_perfil"
         tools:layout="@layout/fragment_perfil" />
 </navigation>

@@ -7,17 +7,17 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.0' // ou a versão mais recente
-        classpath 'com.google.gms:google-services:4.3.10' // ou a versão mais recente
+        classpath 'com.android.tools.build:gradle:7.4.2' // ou a versão mais recente
+        classpath 'com.google.gms:google-services:4.3.14' // ou a versão mais recente
         // outras dependências do classpath, se houver
     }
 }
 
 // Agora mova os blocos de plugins para o final do arquivo
 plugins {
-    id 'com.android.application' version '7.2.0' apply false
-    id 'com.android.library' version '7.2.0' apply false
-    id 'com.google.gms.google-services' version "4.3.10" apply false
+    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.library' version '7.4.2' apply false
+    id 'com.google.gms.google-services' version "4.3.14" apply false
 }
 
 task clean(type: Delete) {

@@ -1,9 +1,20 @@
 package br.udesc.weparty.Model;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class User {
-    private String name, email, password, confirmPassword;
+    private String uuidString, name, email;
 
     public User() {}
+
+    public String getUuidString() {
+        return uuidString;
+    }
+
+    public void setUuidString(String uuidString) {
+        this.uuidString = uuidString;
+    }
 
     public String getName() {
         return name;
@@ -21,19 +32,9 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void newUser(String uuidString) {
+        this.uuidString = uuidString;
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        reference.child("user").child(uuidString).setValue(this);
     }
 }
