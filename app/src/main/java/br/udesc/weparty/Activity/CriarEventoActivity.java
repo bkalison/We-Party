@@ -1,9 +1,14 @@
 package br.udesc.weparty.Activity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -12,10 +17,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -27,6 +35,7 @@ import br.udesc.weparty.Model.CepResponse;
 import br.udesc.weparty.Model.CepService;
 import br.udesc.weparty.Model.Evento;
 import br.udesc.weparty.R;
+import br.udesc.weparty.Utils.FirebaseConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,11 +59,15 @@ public class CriarEventoActivity extends AppCompatActivity {
     EditText editTextNumero;
     EditText editTextComplemento;
     Button btnAdicionarEvento;
+    Button btnUpload;
+    Bitmap image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_evento);
 
+        btnUpload = findViewById(R.id.btn_upload);
         editTextNomeEvento = findViewById(R.id.editTextNomeEvento);
         editTextDescricao = findViewById(R.id.editTextDescricao);
         editTextDataDoEvento = findViewById(R.id.editTextDataDoEvento);
@@ -121,10 +134,14 @@ public class CriarEventoActivity extends AppCompatActivity {
             }
         });
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+        btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if(ActivityCompat.checkSelfPermission(CriarEventoActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(CriarEventoActivity.this, new String[]{Manifest.permission.CAMERA}, 0);
+                } else {
+                    tirarFoto();
+                }
             }
         });
 
@@ -151,13 +168,6 @@ public class CriarEventoActivity extends AppCompatActivity {
         String numero = editTextNumero.getText().toString();
         String complemento = editTextComplemento.getText().toString();
 
-
-
-        if (TextUtils.isEmpty(nome) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data) || TextUtils.isEmpty(cep) ||
-                TextUtils.isEmpty(cidade) || TextUtils.isEmpty(estado) || TextUtils.isEmpty(bairro) || TextUtils.isEmpty(rua) || TextUtils.isEmpty(numero) || TextUtils.isEmpty(complemento)) {
-            Toast.makeText(this, "Todos os campos são Obrigatorios", Toast.LENGTH_SHORT).show();
-        }
-
         if (nome.isEmpty()) {
             Toast.makeText(this, "O campo 'Nome' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else if (descricao.isEmpty()) {
@@ -176,8 +186,6 @@ public class CriarEventoActivity extends AppCompatActivity {
             Toast.makeText(this, "O campo 'Rua' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else if (numero.isEmpty()) {
             Toast.makeText(this, "O campo 'Número' é obrigatório.", Toast.LENGTH_SHORT).show();
-        } else if (complemento.isEmpty()) {
-            Toast.makeText(this, "O campo 'Complemento' é obrigatório.", Toast.LENGTH_SHORT).show();
         } else {
 
             event = new Evento();
@@ -190,7 +198,9 @@ public class CriarEventoActivity extends AppCompatActivity {
             event.setAddress(rua);
             event.setNumber(numero);
             event.setComplement(complemento);
-            event.setDate(calendar);
+            event.setDate(calendar.getTime());
+            //event.setUrlImage(imagem);
+            event.setCreator(FirebaseConfig.FirebaseAuthentication().getCurrentUser().getUid());
 
             event.newEvent();
 
@@ -237,5 +247,19 @@ public class CriarEventoActivity extends AppCompatActivity {
         String format = "dd/MM/yyyy HH:mm";
         SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.US);
         dataEvento.setText(dateFormat.format(calendar.getTime()));
+    }
+
+    public void tirarFoto(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == 1 && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            image = (Bitmap) extras.get("data");
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

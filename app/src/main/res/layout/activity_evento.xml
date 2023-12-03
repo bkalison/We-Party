@@ -36,7 +36,7 @@
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageEvento"
             android:layout_width="0dp"
             android:layout_height="240dp"
             android:layout_marginStart="24dp"
@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageEvento" />
 
         <TextView
             android:id="@+id/textEventoNome"

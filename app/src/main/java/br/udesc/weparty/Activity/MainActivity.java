@@ -4,24 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseApp;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.udesc.weparty.Model.EventCard;
 import br.udesc.weparty.R;
 import android.util.Log;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.installations.FirebaseInstallations;
-import com.google.firebase.installations.InstallationTokenResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 
@@ -65,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startApp() {
-//        startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
-        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        startActivity(new Intent(MainActivity.this, LoginRegistroActivity.class));
     }
 }
