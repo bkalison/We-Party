@@ -41,4 +41,5 @@
     <string name="nome">Nome</string>
     <string name="nome_Perfil">Nome do Usuario</string>
     <string name="nome_completo">Nome Completo</string>
+    <string name="sair">Sair</string>
 </resources>

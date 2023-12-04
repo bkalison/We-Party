@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.perfil.PerfilFragment">
+    tools:context=".ui.PerfilFragment">
 
     <EditText
         android:id="@+id/textEmailPerfil"
@@ -68,6 +68,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPerfil"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <android.widget.Button
+        android:id="@+id/btnDeslogar"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/design_btn_login"
+        android:text="@string/sair"
+        android:textColor="@color/orange_main"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailPerfil"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,13 +7,16 @@ import android.util.Log;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 public class Evento {
-    private String name, address, complement, description, cep, city, state, district, number;
-    private Calendar date;
-
+    private String name, address, complement, description, cep, city, state, district, number, urlImage, creator;
+    private Date date;
     UUID uuid = UUID.randomUUID();
     String uuidString = uuid.toString();
 
@@ -93,16 +96,37 @@ public class Evento {
         this.number = number;
     }
 
-    public Calendar getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public String dateString() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US);
+        return dateFormat.format(this.date);
+    }
+
+    public void setDate(Date date) {
         this.date = date;
     }
 
     public String getUuidString() {
         return uuidString;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public void newEvent(){

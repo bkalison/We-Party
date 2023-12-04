@@ -61,10 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!email.isEmpty()){
             if (!password.isEmpty()) {
-                user = new User();
-                user.setEmail(email);
-                user.setPassword(password);
-                login(user);
+                login(email, password);
             }else {
                 Toast.makeText(this,"Preencha o email", Toast.LENGTH_SHORT).show();
             }
@@ -73,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void login(User user) {
+    public void login(String email, String password) {
         firebaseAuth.signInWithEmailAndPassword(
-                user.getEmail(), user.getPassword()
+                email, password
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
