@@ -1,11 +1,13 @@
-package br.udesc.weparty;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.udesc.weparty.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import br.udesc.weparty.R;
 
 public class LoginRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,13 +19,13 @@ public class LoginRegistroActivity extends AppCompatActivity implements View.OnC
         Button logar = (Button) findViewById(R.id.btnLogarAbrir);
         logar.setOnClickListener(this);
 
-        Button registrar = (Button) findViewById(R.id.btnRegistrarAbrir);
+        Button registrar = (Button) findViewById(R.id.btnDeslogar);
         registrar.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnRegistrarAbrir) {
+        if (v.getId() == R.id.btnDeslogar) {
             Intent registrar = new Intent(v.getContext(), RegistroActivity.class);
             startActivity(registrar);
         }

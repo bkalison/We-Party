@@ -1,4 +1,4 @@
-package br.udesc.weparty;
+package br.udesc.weparty.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import br.udesc.weparty.R;
 
 public class RegistroSucessoActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class RegistroSucessoActivity extends AppCompatActivity {
         });
     }
     public void intent(){
-        Intent intent = new Intent(RegistroSucessoActivity.this, LoginActivity.class);
+        Intent intent = new Intent(RegistroSucessoActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }
