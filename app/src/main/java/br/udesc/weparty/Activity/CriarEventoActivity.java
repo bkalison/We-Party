@@ -71,6 +71,8 @@ public class CriarEventoActivity extends AppCompatActivity {
     Button btnUpload;
     Bitmap image;
 
+    String uploadedImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -208,7 +210,7 @@ public class CriarEventoActivity extends AppCompatActivity {
             event.setNumber(numero);
             event.setComplement(complemento);
             event.setDate(calendar.getTime());
-            //event.setUrlImage(imagem);
+            event.setUrlImage(uploadedImage);
             event.setCreator(FirebaseConfig.FirebaseAuthentication().getCurrentUser().getUid());
 
             event.newEvent();
@@ -302,9 +304,11 @@ public class CriarEventoActivity extends AppCompatActivity {
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         MultipartBody.Part photoPart = MultipartBody.Part.createFormData("photo", file.getName(), requestFile);
 
+
+
         // Criação do Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl("https://generalapis.space/chat/api/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -319,7 +323,8 @@ public class CriarEventoActivity extends AppCompatActivity {
                 // Manipule a resposta aqui
                 if (response.isSuccessful()) {
                     UploadResponse uploadResponse = response.body();
-                    Log.w("TAG", uploadResponse.getImageUrl());
+                    String image = (String) uploadResponse.getImageUrl();
+                    setUploadedImage(image);
                     // Faça algo com a resposta
                 } else {
                     // Trate os erros aqui
@@ -331,5 +336,13 @@ public class CriarEventoActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public String getUploadedImage() {
+        return uploadedImage;
+    }
+
+    public void setUploadedImage(String uploadedImage) {
+        this.uploadedImage = uploadedImage;
     }
 }
