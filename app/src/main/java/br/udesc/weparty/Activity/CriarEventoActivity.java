@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -27,6 +28,9 @@ import androidx.core.app.ActivityCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -34,8 +38,13 @@ import java.util.Locale;
 import br.udesc.weparty.Model.CepResponse;
 import br.udesc.weparty.Model.CepService;
 import br.udesc.weparty.Model.Evento;
+import br.udesc.weparty.Model.UploadResponse;
+import br.udesc.weparty.Model.UploadService;
 import br.udesc.weparty.R;
 import br.udesc.weparty.Utils.FirebaseConfig;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -258,8 +267,69 @@ public class CriarEventoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == 1 && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            image = (Bitmap) extras.get("data");
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            uploadImage(imageBitmap);
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private File bitmapToFile(Bitmap bitmap) {
+        // Converte o Bitmap para um arquivo temporário
+        File filesDir = getApplicationContext().getFilesDir();
+        File imageFile = new File(filesDir, "temp_image.jpg");
+
+        OutputStream os;
+        try {
+            os = new FileOutputStream(imageFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            os.flush();
+            os.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return imageFile;
+    }
+
+    public void uploadImage(Bitmap imageBitmap) {
+
+
+        String BASE_URL = "https://generalapis.space/chat/api/public/";
+
+        File file = bitmapToFile(imageBitmap);
+
+        // Criação da parte da imagem (MultipartBody.Part)
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("photo", file.getName(), requestFile);
+
+        // Criação do Retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Criação do serviço da API
+        UploadService uploadService = retrofit.create(UploadService.class);
+
+        // Chamada para enviar a imagem
+        Call<UploadResponse> call = uploadService.uploadImage(photoPart);
+        call.enqueue(new Callback<UploadResponse>() {
+            @Override
+            public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
+                // Manipule a resposta aqui
+                if (response.isSuccessful()) {
+                    UploadResponse uploadResponse = response.body();
+                    Log.w("TAG", uploadResponse.getImageUrl());
+                    // Faça algo com a resposta
+                } else {
+                    // Trate os erros aqui
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UploadResponse> call, Throwable t) {
+
+            }
+        });
     }
 }
